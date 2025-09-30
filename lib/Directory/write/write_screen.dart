@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'social_hub_screen.dart'; // <-- thêm
 import 'write_text_screen.dart';
 import 'write_url_screen.dart';
 
@@ -14,6 +15,8 @@ class WriteScreen extends StatelessWidget {
         children: [
           const Text('GHI THẺ NFC', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
+
+          // --- Ghi Text ---
           Card(
             child: ListTile(
               leading: const Icon(Icons.text_fields),
@@ -27,6 +30,8 @@ class WriteScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
+
+          // --- Ghi URL ---
           Card(
             child: ListTile(
               leading: const Icon(Icons.link),
@@ -36,6 +41,21 @@ class WriteScreen extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => const WriteUrlScreen()),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          // --- Social (mới) ---
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.people_alt_outlined),
+              title: const Text('Social'),
+              subtitle: const Text('Ghi URL Facebook / Instagram / YouTube / GitHub'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SocialHubScreen()),
               ),
             ),
           ),
